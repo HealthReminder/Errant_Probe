@@ -1,0 +1,43 @@
+planet I orbit
+planet I see
+planet I scan
+planet I detect
+comet I fly by
+comet I orbit
+comet I see
+comet I scan
+comet I detect
+rock I fly by
+rock I orbit
+rock I see
+rock I scan
+rock I detect
+ball I fly by
+ball I orbit
+ball I see
+ball I scan
+ball I detect
+planet below
+comet below
+rock below
+ball below
+planet ahead
+comet ahead
+rock ahead
+ball ahead
+planet above
+comet above
+rock above
+ball above
+planet there
+comet there
+rock there
+ball there
+planet here
+comet here
+rock here
+ball here
+planet by me
+comet by me
+rock by me
+ball by me
