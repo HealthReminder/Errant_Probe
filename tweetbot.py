@@ -67,7 +67,7 @@ def insert_beeps(beep_quantity, line):
 
 while True:
     event_duration = random.randint(2, 4)
-    print("New event with "+str(event_duration+1)+" tweets.")
+    print("New event with " + str(event_duration + 1) + " tweets.")
     detectors = get_lines("detectors", event_duration)
     adjectives = get_lines("adjectives", event_duration)
     places = get_lines("places", event_duration)
@@ -80,7 +80,7 @@ while True:
 
     for y in range(0, len(lines_put_together)):
         lines_put_together[y] = insert_beeps(2, lines_put_together[y])
-        #print(lines_put_together[x])
+        # print(lines_put_together[x])
 
     goodbye_line = get_lines("goodbyes", 1)
     body_name = ""
@@ -89,10 +89,10 @@ while True:
             break
         else:
             body_name += c
-    sad_line = get_lines("sadMessages",1)
+    sad_line = get_lines("sadMessages", 1)
     goodbye_message = goodbye_line[0] + " " + body_name + ". " + sad_line[0]
-    goodbye_message = insert_beeps(2,goodbye_message)
-    #print(goodbye_message)
+    goodbye_message = insert_beeps(2, goodbye_message)
+    # print(goodbye_message)
 
     all_tweets = []
     all_tweets = lines_put_together
@@ -100,4 +100,5 @@ while True:
     for i in range(0, len(all_tweets)):
         api.update_status(all_tweets[i])
         print(all_tweets[i])
-        time.sleep(60*10)
+        time.sleep(60)
+    time.sleep(5)
