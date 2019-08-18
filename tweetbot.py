@@ -5,7 +5,7 @@ import random
 
 
 def get_lines(file_name, times):
-    file = open(f"files\{file_name}.txt", "r")
+    file = open(f"resources\files\{file_name}.txt", "r")
     text_block = file.read()
     all_lines = []
     all_lines = text_block.split('\n')
