@@ -66,7 +66,7 @@ except Exception as e:
 
 while True:
     # print(all_tweets[i])
-    event_duration = random.randint(2, 4)
+    event_duration = random.randint(3, 6)
     print("New event with " + str(event_duration + 1) + " tweets.")
     detectors = get_lines("detectors", event_duration)
     adjectives = get_lines("adjectives", event_duration)
@@ -75,7 +75,7 @@ while True:
     lines_put_together = []
     for x in range(0, event_duration):
         lines_put_together.append(
-            detectors[x] + " " + adjectives[x] + " " + places[x] + " on the " + celestial_bodies[0])
+            detectors[x] + " " + adjectives[x] + " " + places[x] + " on this " + celestial_bodies[0])
         # sprint(lines_put_together[x])
 
     for y in range(0, len(lines_put_together)):
@@ -90,7 +90,7 @@ while True:
         else:
             body_name += c
     sad_line = get_lines("sadMessages", 1)
-    goodbye_message = goodbye_line[0] + " " + body_name + ". " + sad_line[0]
+    goodbye_message = goodbye_line[0] + " " + body_name.lower() + ". " + sad_line[0]
     goodbye_message = insert_beeps(2, goodbye_message)
     # print(goodbye_message)
 
@@ -100,5 +100,5 @@ while True:
     for i in range(0, len(all_tweets)):
         api.update_status(all_tweets[i])
         print(all_tweets[i])
-        time.sleep(60*45)
-    time.sleep(60*15)
+        time.sleep(60*15)
+    time.sleep(60*60)

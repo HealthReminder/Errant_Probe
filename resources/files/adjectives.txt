@@ -30,6 +30,7 @@ hot
 frozen
 cold
 freezing cold
+icy
 scorching hot
 lava
 crystalline
@@ -58,6 +59,7 @@ poisonous
 toxic
 radioactive
 explosive
+burnt
 slippery
 dangerous
 permafrosted
