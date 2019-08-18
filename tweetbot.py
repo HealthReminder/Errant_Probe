@@ -74,6 +74,31 @@ while True:
     celestial_bodies = get_lines("celestialBodies", event_duration)
     lines_put_together = []
     for x in range(0, event_duration):
-        lines_put_together.append(detectors[x] + " " + adjectives[x] + " " + places[x] + " on the " + celestial_bodies[0])
-    api.update_status(lines_put_together[0])
-    time.sleep(15)
+        lines_put_together.append(
+            detectors[x] + " " + adjectives[x] + " " + places[x] + " on the " + celestial_bodies[0])
+        # sprint(lines_put_together[x])
+
+    for y in range(0, len(lines_put_together)):
+        lines_put_together[y] = insert_beeps(2, lines_put_together[y])
+        # print(lines_put_together[x])
+
+    goodbye_line = get_lines("goodbyes", 1)
+    body_name = ""
+    for c in celestial_bodies[0]:
+        if c == " ":
+            break
+        else:
+            body_name += c
+    sad_line = get_lines("sadMessages", 1)
+    goodbye_message = goodbye_line[0] + " " + body_name + ". " + sad_line[0]
+    goodbye_message = insert_beeps(2, goodbye_message)
+    # print(goodbye_message)
+
+    all_tweets = []
+    all_tweets = lines_put_together
+    all_tweets.append(goodbye_message)
+    for i in range(0, len(all_tweets)):
+        api.update_status(all_tweets[i])
+        print(all_tweets[i])
+        time.sleep(60)
+    time.sleep(5)
