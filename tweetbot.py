@@ -100,5 +100,5 @@ while True:
     for i in range(0, len(all_tweets)):
         api.update_status(all_tweets[i])
         print(all_tweets[i])
-        time.sleep(60)
-    time.sleep(5)
+        time.sleep(60*45)
+    time.sleep(60*15)
