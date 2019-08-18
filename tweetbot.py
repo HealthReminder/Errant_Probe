@@ -1,21 +1,7 @@
 from concurrent.futures import thread
-
 import tweepy
 import time
 import random
-
-CONSUMER_KEY = 'yDRjfJEW3cDPnEZN2HjMMO6xx'
-CONSUMER_SECRET = 'VxOcmD1MBrWFehxas0S7N7IayqLKxwOiYxHPwcG3QpZego1qES'
-ACCESS_KEY = '611329476-Ivi8Kl83lp8ZqPzaR4fAAhU9qpZNXOpzPFFlPhRn'
-ACCESS_SECRET = '31SLhrMDY0QuKjDqaCnY176Oh4X0pDtOSp7LYmguUbPct'
-auth = tweepy.OAuthHandler(CONSUMER_KEY, CONSUMER_SECRET)
-auth.set_access_token(ACCESS_KEY, ACCESS_SECRET)
-api = tweepy.API(auth)
-try:
-    api.verify_credentials()
-except Exception as e:
-    print("ERROR")
-    raise e
 
 
 def get_lines(file_name, times):
@@ -65,7 +51,20 @@ def insert_beeps(beep_quantity, line):
     return line
 
 
+CONSUMER_KEY = 'yDRjfJEW3cDPnEZN2HjMMO6xx'
+CONSUMER_SECRET = 'VxOcmD1MBrWFehxas0S7N7IayqLKxwOiYxHPwcG3QpZego1qES'
+ACCESS_KEY = '611329476-Ivi8Kl83lp8ZqPzaR4fAAhU9qpZNXOpzPFFlPhRn'
+ACCESS_SECRET = '31SLhrMDY0QuKjDqaCnY176Oh4X0pDtOSp7LYmguUbPct'
+auth = tweepy.OAuthHandler(CONSUMER_KEY, CONSUMER_SECRET)
+auth.set_access_token(ACCESS_KEY, ACCESS_SECRET)
+api = tweepy.API(auth)
+try:
+    api.verify_credentials()
+except Exception as e:
+    print("ERROR")
+    raise e
+
 while True:
-    api.update_status("Test")
-    #print(all_tweets[i])
+    api.update_status("Test"+str(random.randrange(0,9999)))
+    # print(all_tweets[i])
     time.sleep(15)
