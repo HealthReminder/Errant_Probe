@@ -65,8 +65,9 @@ except Exception as e:
     raise e
 
 while True:
+    #batch_delete()
     # print(all_tweets[i])
-    event_duration = random.randint(3, 6)
+    event_duration = random.randint(3, 5)
     print("New event with " + str(event_duration + 1) + " tweets.")
     detectors = get_lines("detectors", event_duration)
     adjectives = get_lines("adjectives", event_duration)
@@ -100,5 +101,5 @@ while True:
     for i in range(0, len(all_tweets)):
         api.update_status(all_tweets[i])
         print(all_tweets[i])
-        time.sleep(60*15)
-    time.sleep(60*60)
+        time.sleep(6*1.5)
+    time.sleep(6*6)
