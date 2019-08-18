@@ -65,6 +65,15 @@ except Exception as e:
     raise e
 
 while True:
-    api.update_status("Test"+str(random.randrange(0,9999)))
     # print(all_tweets[i])
+    event_duration = random.randint(2, 4)
+    print("New event with " + str(event_duration + 1) + " tweets.")
+    detectors = get_lines("detectors", event_duration)
+    adjectives = get_lines("adjectives", event_duration)
+    places = get_lines("places", event_duration)
+    celestial_bodies = get_lines("celestialBodies", event_duration)
+    lines_put_together = []
+    for x in range(0, event_duration):
+        lines_put_together.append(detectors[x] + " " + adjectives[x] + " " + places[x] + " on the " + celestial_bodies[0])
+    api.update_status(lines_put_together[0])
     time.sleep(15)
