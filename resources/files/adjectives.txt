@@ -10,6 +10,9 @@ green
 orange
 brown
 black
+white
+colorful
+dull
 beautiful
 gorgeous
 awe-inspiring
@@ -18,6 +21,9 @@ pretty
 cute
 isolated
 creepy
+suspicious
+natural
+artificial
 disgusting
 dirty
 melancholic
@@ -25,22 +31,29 @@ notable
 incredible
 interesting
 acidic
-alcaline
+alkaline
 hot
 frozen
 cold
 freezing cold
 icy
+ice
 scorching hot
+fire
+smoking
 lava
 crystalline
 rocky
-woody
 plastic
 sandy
-peebly
+pebbly
+highly reflexive
 emerald
 diamond
+carbon
+gold
+silver
+rubber
 metallic
 glass
 big
@@ -56,6 +69,8 @@ rainy
 electric
 burning
 poisonous
+smoky
+foggy
 toxic
 radioactive
 explosive
