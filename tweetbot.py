@@ -64,6 +64,7 @@ except Exception as e:
     print("ERROR")
     raise e
 
+turn = 0
 while True:
     # batch_delete()
     # print(all_tweets[i])
@@ -117,9 +118,12 @@ while True:
         if i == 0:
             print(all_tweets[i])
             this_tweet = api.update_status(all_tweets[i])
-            initial_tweet = this_tweet
+            last_tweet = this_tweet
         else:
             print(all_tweets[i])
-            this_tweet = api.update_status(status=all_tweets[i], in_reply_to_status_id=initial_tweet.id)
-        time.sleep(60 * 10)
-    time.sleep(60 * 60)
+            this_tweet = api.update_status(status=all_tweets[i], in_reply_to_status_id=last_tweet.id)
+            last_tweet = this_tweet
+        time.sleep(turn*60 * 10)
+    time.sleep(turn*60 * 60)
+    if turn == 0:
+        turn = 1
