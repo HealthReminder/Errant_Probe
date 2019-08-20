@@ -47,7 +47,7 @@ rocky
 plastic
 sandy
 pebbly
-highly reflexive
+reflexive
 emerald
 diamond
 carbon
@@ -79,3 +79,9 @@ slippery
 dangerous
 permafrosted
 petrol-likes
+dirt
+metal
+shiny
+shining
+
+

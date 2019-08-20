@@ -65,14 +65,31 @@ except Exception as e:
     raise e
 
 while True:
-    #batch_delete()
+    # batch_delete()
     # print(all_tweets[i])
     event_duration = random.randint(3, 5)
+    # event_duration = random.randint(1, 2)
     print("New event with " + str(event_duration + 1) + " tweets.")
+    # GET FILES
     detectors = get_lines("detectors", event_duration)
     adjectives = get_lines("adjectives", event_duration)
     places = get_lines("places", event_duration)
     celestial_bodies = get_lines("celestialBodies", event_duration)
+    greetings = get_lines("initialMessages",event_duration)
+
+    #GET INFO
+    body_name = ""
+    for c in celestial_bodies[0]:
+        if c == " ":
+            break
+        else:
+            body_name += c
+
+    # GREETINGS
+    greeting_tweet = random.choice(greetings) + " "+ body_name + "!"*(event_duration-2)
+    greeting_tweet = insert_beeps(1, greeting_tweet)
+
+    # STUDIES
     lines_put_together = []
     for x in range(0, event_duration):
         lines_put_together.append(
@@ -83,23 +100,26 @@ while True:
         lines_put_together[y] = insert_beeps(2, lines_put_together[y])
         # print(lines_put_together[x])
 
+    # GOODBYES
     goodbye_line = get_lines("goodbyes", 1)
-    body_name = ""
-    for c in celestial_bodies[0]:
-        if c == " ":
-            break
-        else:
-            body_name += c
     sad_line = get_lines("sadMessages", 1)
     goodbye_message = goodbye_line[0] + " " + body_name.lower() + ". " + sad_line[0]
     goodbye_message = insert_beeps(2, goodbye_message)
     # print(goodbye_message)
 
-    all_tweets = []
-    all_tweets = lines_put_together
+    # ALL
+    all_tweets = [greeting_tweet]
+    for a in lines_put_together:
+        all_tweets.append(a)
     all_tweets.append(goodbye_message)
+
     for i in range(0, len(all_tweets)):
-        api.update_status(all_tweets[i])
-        print(all_tweets[i])
-        time.sleep(60*15)
-    time.sleep(60*60)
+        if i == 0:
+            print(all_tweets[i])
+            this_tweet = api.update_status(all_tweets[i])
+            initial_tweet = this_tweet
+        else:
+            print(all_tweets[i])
+            this_tweet = api.update_status(status=all_tweets[i], in_reply_to_status_id=initial_tweet.id)
+        time.sleep(60 * 10)
+    time.sleep(60 * 60)
