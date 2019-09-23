@@ -123,7 +123,7 @@ while True:
             print(all_tweets[i])
             this_tweet = api.update_status(status=all_tweets[i], in_reply_to_status_id=last_tweet.id)
             last_tweet = this_tweet
-        time.sleep(turn*60 * 10)
-    time.sleep(turn*60 * 60)
+        time.sleep(turn*60 * 30)
+    time.sleep(turn*60 * 120)
     if turn == 0:
         turn = 1
